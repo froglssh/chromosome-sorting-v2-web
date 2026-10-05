@@ -1083,6 +1083,53 @@ body:has(#play:not(.hidden)) .head-nav{display:none!important;}
 @media(min-width:1000px) and (max-height:660px){#play #grid.chromosome-hot-wide #q-opts .hot-choices{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3px!important;}#play #grid.chromosome-hot-wide #q-opts .hot-choice{font-size:11px!important;padding:3px!important;min-height:32px!important;line-height:1.25!important;}#play #grid.chromosome-hot-wide #q-opts .opt{font-size:13px!important;min-height:30px!important;padding:3px 5px!important;}#play #grid.chromosome-hot-wide #q-opts .opts{gap:3px!important;}}
 
 @media(max-width:999px){#play #grid.chromosome-hot-wide svg.board{flex:none!important;height:auto!important;min-height:0!important;aspect-ratio:1236/370;align-self:start;}#play #grid.chromosome-hot-wide .stage{min-height:0!important;}}
+
+/* ── 1-4 精準同框零溢出補丁（消除 1366×768 及 1240×604 下 3~4px 微幅超高） ── */
+@media (min-width: 900px) {
+  html:has(#play:not(.hidden)) main.wrap,
+  body:has(#play:not(.hidden)) main.wrap {
+    padding-top: 4px !important;
+    padding-bottom: calc(var(--quiz-footer-height, var(--barh, 52px)) + 6px) !important;
+  }
+  #play .stage {
+    padding: 8px 10px !important;
+  }
+  #play .panel {
+    padding: 8px 10px !important;
+  }
+  #play #grid {
+    gap: 10px !important;
+  }
+}
+@media (max-height: 650px) {
+  .hero {
+    padding-block: clamp(12px, 2.5vh, 22px) !important;
+    gap: 20px !important;
+  }
+  .eyebrow {
+    margin-bottom: 8px !important;
+  }
+  .hero h1 {
+    font-size: clamp(24px, 4.5vw, 32px) !important;
+    margin-bottom: 4px !important;
+  }
+  .hero .lede {
+    font-size: 15px !important;
+    margin-bottom: 12px !important;
+  }
+  .specimen {
+    max-height: clamp(130px, 26vh, 170px) !important;
+  }
+  .entry-grid, .route-grid {
+    gap: 10px !important;
+  }
+  .route-card {
+    padding: 10px 12px !important;
+  }
+  .reading-state {
+    margin-top: 8px !important;
+  }
+}
 </style>
 <style>
 /* Restore the whole textbook figure; give the wider original the larger column. */
